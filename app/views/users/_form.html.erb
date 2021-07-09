@@ -1,0 +1,16 @@
+<%= form_for @user do |f| %>
+  Email: <%= f.text_field :name %>
+  First Name: <%= f.text_field :height %>
+  Last Name: <%= f.text_field :happiness %>
+  Address: <%= f.text_field :nausea %>
+
+  Balance: <%= f.radio_button("balance","0") %>
+  Balance: <%= f.radio_button("balance","10") %>
+  Balance: <%= f.radio_button("balance","50") %>
+  Balance: <%= f.radio_button("balance","100") %>
+  Custom Balance: <%= f.text_field :balance %>
+  Password: <%= f.password_field :password %>
+
+  Vendor: <%= f.check_box :vendor%>
+  <%= f.submit "Create User" %>
+<% end %> 
