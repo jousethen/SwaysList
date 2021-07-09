@@ -1,0 +1,11 @@
+<div class="form-outline col-md-4">
+<h2>Edit Account</h2>
+<%= render partial: 'form', locals: {user: @user} %>
+
+<p>Add Money</p>
+$0: <%= f.radio_button("balance","0") %>
+$10: <%= f.radio_button("balance","10") %>
+$50: <%= f.radio_button("balance","50") %>
+$100: <%= f.radio_button("balance","100") %>
+Custom Balance: <%= f.text_field :balance, class: 'form-control' %><br>
+</div>

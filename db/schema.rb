@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2021_07_08_043453) do
     t.string "last_name"
     t.string "email"
     t.string "password_digest"
-    t.integer "balance"
+    t.integer "balance", default: 0
     t.string "address"
     t.boolean "vendor"
     t.datetime "created_at", precision: 6, null: false

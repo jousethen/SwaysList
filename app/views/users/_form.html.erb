@@ -4,12 +4,6 @@
   Last Name: <%= f.text_field :last_name, class: 'form-control' %><br>
   Address: <%= f.text_area :address, class: 'form-control' %><br>
 
-  <p>Choose Starting Balance</p>
-  $0: <%= f.radio_button("balance","0") %>
-  $10: <%= f.radio_button("balance","10") %>
-  $50: <%= f.radio_button("balance","50") %>
-  $100: <%= f.radio_button("balance","100") %>
-  Custom Balance: <%= f.text_field :balance, class: 'form-control' %><br>
   Password: <%= f.password_field :password, class: 'form-control' %><br>
 
   Vendor: <%= f.check_box :vendor%><br>
