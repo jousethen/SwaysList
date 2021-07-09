@@ -42,3 +42,11 @@ div.nav li a:hover:not(.active) {
 .active {
   background-color: white;
 }
+
+form {
+  text-align: center;
+}
+
+form > input {
+  padding: 20 px;
+}

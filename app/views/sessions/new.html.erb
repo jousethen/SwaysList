@@ -1,0 +1,12 @@
+<h3>Login to continue</h3>
+<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
+  
+  <%= label_tag(:email, "Email:") %>
+  <%= text_field_tag :email %><br>
+ 
+  <%= label_tag(:password, "Password:") %>
+  <%= password_field_tag :password %><br>
+
+  <%= submit_tag "Login" %>
+<% end %>
+
