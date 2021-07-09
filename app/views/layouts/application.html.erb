@@ -13,16 +13,18 @@
     <h1>SwayList</h1>
     <div class="nav">
       <ul>
-        <li><a href="/">Home</a></li>
         <% if session[:user_id] %>
-          <li><a href=<%=edit_user(session[:user_id])%>>Account</a></li>  
-          <li><a href="/logout">Logout</a></li>   
+          <li><a href="/logout">Logout</a></li> 
+          <li><a href=<%=edit_user(session[:user_id])%>>Account</a></li>   
         <% else %>
           <li><a href="/login">Log In</a></li>
           <li><a href="/signup">Sign Up</a></li>
         <% end %>
+        <li><a href="/">Home</a></li>
       </ul>
     </div>
+    
+
   </header>
 
   <body>

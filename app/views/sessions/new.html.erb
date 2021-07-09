@@ -1,6 +1,12 @@
-<h3>Login to continue</h3>
+
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-  
+  <h3>Login to continue</h3>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+
   <%= label_tag(:email, "Email:") %>
   <%= text_field_tag :email %><br>
  
