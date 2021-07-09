@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def logout
+    render 'logout'
   end
 
   def create
