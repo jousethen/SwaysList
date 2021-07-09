@@ -3,6 +3,13 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def edit
+    @user = User.find(session[:user_id])
+  end
+
+  def add_balance
+  end
+  
   def create
     user = User.new(user_params)
     

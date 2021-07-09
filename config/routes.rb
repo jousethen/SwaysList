@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#logout'
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
+  post '/add_balance' =>'users#add_balance'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
