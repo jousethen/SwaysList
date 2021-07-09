@@ -3,8 +3,32 @@
   First Name: <%= f.text_field :first_name, class: 'form-control' %><br>
   Last Name: <%= f.text_field :last_name, class: 'form-control' %><br>
   Address: <%= f.text_area :address, class: 'form-control' %><br>
-  Password: <%= f.password_field :password, class: 'form-control' %><br>
 
-  Vendor: <%= f.check_box :vendor%><br>
-  <%= f.submit "Create Account", class: 'btn btn-primary' %>
+  <% if session[:user_id]%>
+    <p>Add Money</p>
+    <%= form_tag ({controller: 'users', action: 'add_balance', method: 'post'}) do %>
+      <%= hidden_field_tag :balance, '10' %>
+      <%= submit_tag "$10" %>
+    <% end %>
+
+    <%= form_tag ({controller: 'users', action: 'add_balance', method: 'post'}) do %>
+      <%= submit_tag "$50" %>
+    <% end %>
+
+    <%= form_tag ({controller: 'users', action: 'add_balance', method: 'post'}) do %>
+      <%= submit_tag "$100" %>
+    <% end %>
+
+    <%= form_tag ({controller: 'users', action: 'add_balance', method: 'post'}) do %>
+      <%= submit_tag "$100" %>
+    <% end %>
+
+    <%= f.submit "Edit Account", class: 'btn btn-primary' %>
+
+  <% else %>
+    Password: <%= f.password_field :password, class: 'form-control' %><br>
+    Vendor: <%= f.check_box :vendor%><br>
+    <%= f.submit "Create Account", class: 'btn btn-primary' %>
+  <% end %>
+
 <% end %> 
