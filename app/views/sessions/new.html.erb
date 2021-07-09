@@ -1,4 +1,4 @@
-
+<div class="form-outline col-md-4">
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
   <h3>Login to continue</h3>
     <% flash.each do |type, msg| %>
@@ -8,11 +8,12 @@
     <% end %>
 
   <%= label_tag(:email, "Email:") %>
-  <%= text_field_tag :email %><br>
+  <%= text_field_tag :email, class: 'form-control'  %><br>
  
   <%= label_tag(:password, "Password:") %>
-  <%= password_field_tag :password %><br>
+  <%= password_field_tag :password, class: 'form-control' %><br>
 
-  <%= submit_tag "Login" %>
+  <%= submit_tag "Login", class: 'btn btn-primary' %>
 <% end %>
 
+</div>
