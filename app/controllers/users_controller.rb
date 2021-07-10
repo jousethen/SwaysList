@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  protect_from_forgery except: :add_balance
+
   def new
     @user = User.new
   end
@@ -8,8 +10,11 @@ class UsersController < ApplicationController
   end
 
   def add_balance
+    user = User.find(session[:user_id])
+    user.add_balance(params[:balance].to_i)
+    redirect_to edit_user_path(user)
   end
-  
+
   def create
     user = User.new(user_params)
     
@@ -20,10 +25,22 @@ class UsersController < ApplicationController
       if user.vendor
         session[:admin] = user.id
       end
-      
+
       redirect_to '/'
     else
       redirect_to new_user_path
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    @user.update(user_params)
+
+    if @user.save
+      redirect_to "/"
+    else
+      redirect_to edit_user_path(@user.id)
     end
   end
 

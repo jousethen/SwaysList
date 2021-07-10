@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # bootstrap
 
 gem 'bootstrap-sass', '3.3.7'
+gem 'pry'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -47,6 +48,7 @@ group :development do
 
   # Use ActiveModel has_secure_password
   gem 'bcrypt', '~> 3.1.7'
+  
 end
 
 group :test do
@@ -55,7 +57,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-  gem 'pry'
+  
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

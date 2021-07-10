@@ -5,24 +5,7 @@
   Address: <%= f.text_area :address, class: 'form-control' %><br>
 
   <% if session[:user_id]%>
-    <p>Add Money</p>
-    <%= form_tag ({controller: 'users', action: 'add_balance', method: 'post'}) do %>
-      <%= hidden_field_tag :balance, '10' %>
-      <%= submit_tag "$10" %>
-    <% end %>
-
-    <%= form_tag ({controller: 'users', action: 'add_balance', method: 'post'}) do %>
-      <%= submit_tag "$50" %>
-    <% end %>
-
-    <%= form_tag ({controller: 'users', action: 'add_balance', method: 'post'}) do %>
-      <%= submit_tag "$100" %>
-    <% end %>
-
-    <%= form_tag ({controller: 'users', action: 'add_balance', method: 'post'}) do %>
-      <%= submit_tag "$100" %>
-    <% end %>
-
+    <p class = 'form-control' >Balance: <%= @user.balance %><br></p>
     <%= f.submit "Edit Account", class: 'btn btn-primary' %>
 
   <% else %>
@@ -30,5 +13,27 @@
     Vendor: <%= f.check_box :vendor%><br>
     <%= f.submit "Create Account", class: 'btn btn-primary' %>
   <% end %>
-
 <% end %> 
+<hr>
+<% if session[:user_id]%>
+  <h4>Add Money</h4>
+  <%= form_tag ({controller: 'users', action: 'add_balance', method: 'post'}) do %>
+    <%= hidden_field_tag :balance, '10' %>
+    <%= submit_tag "$10", class:'btn btn-dark' %>
+  <% end %>
+
+  <%= form_tag ({controller: 'users', action: 'add_balance', method: 'post'}) do %>
+    <%= hidden_field_tag :balance, '20' %>
+    <%= submit_tag "$20", class:'btn btn-dark' %>
+  <% end %>
+
+  <%= form_tag ({controller: 'users', action: 'add_balance', method: 'post'}) do %>
+    <%= hidden_field_tag :balance, '50' %>
+    <%= submit_tag "$50", class:'btn btn-dark'%>
+  <% end %>
+
+  <%= form_tag ({controller: 'users', action: 'add_balance', method: 'post'}) do %>
+    <%= hidden_field_tag :balance, '100' %>
+    <%= submit_tag "$100", class:'btn btn-dark' %>
+  <% end %>
+<% end %>
