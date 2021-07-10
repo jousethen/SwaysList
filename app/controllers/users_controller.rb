@@ -1,18 +1,21 @@
 class UsersController < ApplicationController
   protect_from_forgery except: :add_balance
+  skip_before_action :verified_user, only: [:create]
 
   def new
     @user = User.new
   end
 
   def edit
-    @user = User.find(session[:user_id])
+    @user = User.find(params[:id])
+    if @user != current_user
+      redirect_to edit_user_path(current_user.id)
+    end
   end
 
   def add_balance
-    user = User.find(session[:user_id])
-    user.add_balance(params[:balance].to_i)
-    redirect_to edit_user_path(user)
+    current_user.add_balance(params[:balance].to_i)
+    redirect_to edit_user_path(current_user)
   end
 
   def create
@@ -33,14 +36,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    current_user.update(user_params)
 
-    @user.update(user_params)
-
-    if @user.save
+    if current_user.save
       redirect_to "/"
     else
-      redirect_to edit_user_path(@user.id)
+      redirect_to edit_user_path(current_user.id)
     end
   end
 
