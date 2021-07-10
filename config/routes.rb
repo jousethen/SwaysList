@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :transactions
   resources :items
   resources :storefronts, only:[:show, :edit]
-  resources :users
+  resources :users, only: [:new, :edit, :create, :update]
   
   root to: 'storefronts#index'
   get '/login' => 'sessions#new'

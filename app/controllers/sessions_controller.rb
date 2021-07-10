@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to storefronts_path
+      redirect_to "/"
     else
       redirect_to '/login', alert: "Unable to Authenticate"
     end
