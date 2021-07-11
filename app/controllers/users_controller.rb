@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   protect_from_forgery except: :add_balance
-  skip_before_action :verified_user, only: [:create]
+  skip_before_action :verified_user, only: [:new, :create]
 
   def new
     @user = User.new
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
 
       if user.vendor
-        session[:admin] = user.id
+        session[:vendor] = user.id
       end
 
       redirect_to '/'
