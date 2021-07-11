@@ -1,0 +1,12 @@
+<%= form_for @storefront do |f| %>
+  Storefront Name: <%= f.text_field :name, class: 'form-control'%><br>
+  <% if session[:vendor_id]%>
+    <%= f.submit "Edit Storefront", class: 'btn btn-primary' %>
+  <% else %>
+    <%= f.submit "Create Storefront", class: 'btn btn-primary' %>
+  <% end %>
+<% end %> 
+
+<hr>
+
+Items

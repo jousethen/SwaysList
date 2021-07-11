@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_secure_password
   # accepts_nested_attributes_for :storefronts
   validates :email, presence: true
+  validates :email, uniqueness: true
 
   def add_balance(amount)
     current = self.balance
