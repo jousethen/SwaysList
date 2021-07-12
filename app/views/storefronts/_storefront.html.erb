@@ -1,3 +1,5 @@
-<h1 class="display-3"><%=link_to storefront.name[0], storefront_path(storefront.id)%></h1>
-<h4><%=storefront.name %></h4>
-<p>Owned by <%=storefront.user.full_name %></p>
+<div class="col-md-4">
+  <h1 class="display"><%=link_to storefront.name[0], storefront_path(storefront.id)%></h1>
+  <h4><%=storefront.name %></h4>
+  <p>Owned by <%=storefront.user.full_name %></p>
+</div>

@@ -33,7 +33,7 @@ class StorefrontsController < ApplicationController
     storefront = Storefront.new(storefront_params)
     
     if storefront.save
-      redirect_to edit_storefront_path(storefront)
+      redirect_to storefront_path(storefront)
     else
       redirect_to new_storefront_path, alert: "Unable to Create Storefront. Try changing the name"
     end
