@@ -3,7 +3,7 @@
   Description: <%= f.text_area :description, class: 'form-control'%><br>
   <%= hidden_field_tag "[storefront][owner_id]",  current_user.id%>
 
-  <% if session[:vendor]%>
+  <% if current_user.storefront %>
     <%= f.submit "Edit Storefront", class: 'btn btn-primary' %>
   <% else %>
     <%= f.submit "Create Storefront", class: 'btn btn-primary' %>

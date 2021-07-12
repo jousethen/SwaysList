@@ -11,6 +11,11 @@ class StorefrontsController < ApplicationController
 
   def new
     @storefront = Storefront.new
+
+    if !current_user_is_vendor?
+      redirect_to "/", alert: "You must be a vendor to access this page."
+    end
+
   end
 
   def edit

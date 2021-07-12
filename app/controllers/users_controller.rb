@@ -27,6 +27,7 @@ class UsersController < ApplicationController
 
       if user.vendor
         session[:vendor] = user.id
+        redirect_to new_storefront_path
       end
 
       redirect_to '/'
