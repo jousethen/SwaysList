@@ -13,7 +13,5 @@ class User < ApplicationRecord
     self.save
   end
 
-  def storefront
 
-  end
 end
