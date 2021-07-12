@@ -9,3 +9,6 @@
     <%= f.submit "Create Storefront", class: 'btn btn-primary' %>
   <% end %>
 <% end %> 
+
+<hr>
+<%= render :partial => "items/item", :collection => @items %> 
