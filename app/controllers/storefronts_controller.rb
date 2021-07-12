@@ -2,6 +2,7 @@ class StorefrontsController < ApplicationController
   skip_before_action :verified_user, only: [:index, :show]
   
   def index 
+    @storefronts = Storefront.all
   end
   
   def show
