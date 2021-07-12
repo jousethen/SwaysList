@@ -2,6 +2,7 @@
   Item Name: <%= f.text_field :name, class: 'form-control'%><br>
   Price: <%= f.text_field :price, class: 'form-control'%><br>
   Image Url: <%= f.text_field :image_url, class: 'form-control'%><br>
+  Description: <%= f.text_area :description, class: 'form-control'%><br>
   <%= hidden_field_tag "[item][storefront_id]",  current_user.storefront.id%>
   <%= f.submit "Save", class: 'btn btn-primary' %>
 <% end %> 
