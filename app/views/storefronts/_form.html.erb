@@ -5,10 +5,16 @@
 
   <% if current_user.storefront %>
     <%= f.submit "Edit Storefront", class: 'btn btn-primary' %>
+    <hr>
+
+    <%= form_tag ({controller: 'items', action: 'new', method: 'get'}) do %>
+        <%= submit_tag "Create New Item", class:'btn btn-dark' %>
+      <% end %>
+
+    <%= render :partial => "items/item", :collection => @storefront.items %> 
+
   <% else %>
     <%= f.submit "Create Storefront", class: 'btn btn-primary' %>
   <% end %>
 <% end %> 
 
-<hr>
-<%= render :partial => "items/item", :collection => @items %> 

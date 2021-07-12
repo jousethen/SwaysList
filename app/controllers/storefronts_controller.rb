@@ -20,7 +20,6 @@ class StorefrontsController < ApplicationController
 
   def edit
     @storefront = current_user.storefront
-    
     if !@storefront
       redirect_to new_storefront_path
     else
