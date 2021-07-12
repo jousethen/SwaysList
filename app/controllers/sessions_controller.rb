@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
 
  def destroy
     session.delete :user_id
+    session.delete :vendor
     redirect_to '/'
   end
 end
