@@ -1,0 +1,7 @@
+<div class="col-md-4">
+  <%=link_to item_path(item.id) do %>
+    <%= image_tag(item.image_url, border: 1) %>
+  <% end %>
+  <h4><%=item.name %></h4>
+  <p>$<%=item.price %></p>
+</div>

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   resources :transactions
-  resources :items
-  resources :storefronts, only:[:new, :show, :edit, :create, :update]
+
+  resources :storefronts, only:[:new, :show, :edit, :create, :update] do
+    resources :items
+  end
+  
   resources :users, only: [:new, :edit, :create, :update]
   
   root to: 'storefronts#index'
@@ -12,3 +15,4 @@ Rails.application.routes.draw do
   post '/add_balance' =>'users#add_balance'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+ 
