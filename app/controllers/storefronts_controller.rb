@@ -25,12 +25,23 @@ class StorefrontsController < ApplicationController
 
   def create
     storefront = Storefront.new(storefront_params)
-    # storefront.owner_id = current_user.id
     
     if storefront.save
       redirect_to edit_storefront_path(storefront)
     else
       redirect_to new_storefront_path, alert: "Unable to Create Storefront. Try changing the name"
+    end
+  end
+
+  def update
+    storefront = current_user.storefront
+
+    storefront.update(storefront_params)
+
+    if storefront.save
+      redirect_to storefront
+    else
+      redirect_to edit_storefront_path(storefront.id), alert: "Invalid Name"
     end
   end
 
