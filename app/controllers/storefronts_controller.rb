@@ -16,7 +16,7 @@ class StorefrontsController < ApplicationController
     @storefront = current_user.storefront
     
     if !@storefront
-      redirect_to new_storefronts_path
+      redirect_to new_storefront_path
     else
       render 'edit'
     end
@@ -25,9 +25,9 @@ class StorefrontsController < ApplicationController
 
   def create
     storefront = Storefront.new(storefront_params)
-    storefront.owner_id = current_user.id
+    # storefront.owner_id = current_user.id
     
-    if strorefront.save
+    if storefront.save
       redirect_to edit_storefront_path(storefront)
     else
       redirect_to new_storefront_path, alert: "Unable to Create Storefront. Try changing the name"
@@ -36,7 +36,7 @@ class StorefrontsController < ApplicationController
 
    private 
   def storefront_params
-    params.require(:user).permit(:name)
+    params.require(:storefront).permit(:name, :owner_id)
   end
 
 end

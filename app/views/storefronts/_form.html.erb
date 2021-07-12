@@ -1,5 +1,7 @@
 <%= form_for @storefront do |f| %>
   Storefront Name: <%= f.text_field :name, class: 'form-control'%><br>
+  <%= hidden_field_tag "[storefront][owner_id]",  current_user.id%>
+
   <% if session[:vendor_id]%>
     <%= f.submit "Edit Storefront", class: 'btn btn-primary' %>
   <% else %>

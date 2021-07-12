@@ -21,7 +21,7 @@
           <li><a href=<%=new_user_path%>>Sign Up</a></li>
         <% end %>
         <% if session[:vendor] && current_user.storefront%>
-          <li><a href=<%=edit_storefront_path(current_user.storefront)%>>My Store</a></li>
+          <li><a href=<%=edit_storefront_path(current_user.storefront)%>>Myx Store</a></li>
         <% elsif session[:vendor]%>
           <li><a href=<%=new_storefront_path%>>My Store</a></li>
         <% end %>
