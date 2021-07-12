@@ -4,5 +4,11 @@
   Image Url: <%= f.text_field :image_url, class: 'form-control'%><br>
   Description: <%= f.text_area :description, class: 'form-control'%><br>
   <%= hidden_field_tag "[item][storefront_id]",  current_user.storefront.id%>
+
+  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  <%= f.fields_for :categories, item.categories.build do |categories_fields| %>
+    <%= categories_fields.text_field :name %>
+  <% end %>
+
   <%= f.submit "Save", class: 'btn btn-primary' %>
 <% end %> 
