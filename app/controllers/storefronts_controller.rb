@@ -47,7 +47,7 @@ class StorefrontsController < ApplicationController
 
    private 
   def storefront_params
-    params.require(:storefront).permit(:name, :owner_id)
+    params.require(:storefront).permit(:name, :description, :owner_id)
   end
 
 end

@@ -1,5 +1,6 @@
 <%= form_for @storefront do |f| %>
   Storefront Name: <%= f.text_field :name, class: 'form-control'%><br>
+  Description: <%= f.text_area :description, class: 'form-control'%><br>
   <%= hidden_field_tag "[storefront][owner_id]",  current_user.id%>
 
   <% if session[:vendor]%>
