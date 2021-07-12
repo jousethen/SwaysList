@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :transactions
   resources :items
-  resources :storefronts, only:[:show, :edit]
+  resources :storefronts, only:[:new, :show, :edit, :create, :update]
   resources :users, only: [:new, :edit, :create, :update]
   
   root to: 'storefronts#index'

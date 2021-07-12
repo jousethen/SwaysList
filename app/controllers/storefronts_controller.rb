@@ -14,6 +14,13 @@ class StorefrontsController < ApplicationController
 
   def edit
     @storefront = current_user.storefront
+    
+    if !@storefront
+      redirect_to new_storefronts_path
+    else
+      render 'edit'
+    end
+  
   end
 
   def create
