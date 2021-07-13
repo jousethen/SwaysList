@@ -5,8 +5,9 @@
   Description: <%= f.text_area :description, class: 'form-control'%><br>
   <%= hidden_field_tag "[item][storefront_id]",  current_user.storefront.id%>
 
+  <p>Category</p>
   <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
-  <%= f.fields_for :categories, item.categories.build do |categories_fields| %>
+  <%= f.fields_for :categories, Category.new do |categories_fields| %>
     <%= categories_fields.text_field :name %>
   <% end %>
 
