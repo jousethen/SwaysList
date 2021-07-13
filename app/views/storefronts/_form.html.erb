@@ -7,7 +7,7 @@
     <%= f.submit "Edit Storefront", class: 'btn btn-primary' %>
     <hr>
 
-    <%= form_tag ({controller: 'items', action: 'new', method: 'get'}) do %>
+    <%= form_tag new_storefront_item_path(@storefront.id) do %>
         <%= submit_tag "Create New Item", class:'btn btn-dark' %>
       <% end %>
 
