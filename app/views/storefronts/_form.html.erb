@@ -12,7 +12,7 @@
 <% end %> 
 
 <% if current_user.storefront %>
-  <%= form_tag new_storefront_item_path(@storefront.id), method: "GET" do %>
+  <%= form_tag new_item_path, method: "GET" do %>
     <%= submit_tag "Create New Item", class:'btn btn-dark' %>
   <% end %>
 
