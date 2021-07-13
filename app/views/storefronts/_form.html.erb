@@ -6,15 +6,16 @@
   <% if current_user.storefront %>
     <%= f.submit "Edit Storefront", class: 'btn btn-primary' %>
     <hr>
-
-    <%= form_tag new_storefront_item_path(@storefront.id) do %>
-        <%= submit_tag "Create New Item", class:'btn btn-dark' %>
-      <% end %>
-
-    <%= render :partial => "items/item", :collection => @storefront.items %> 
-
   <% else %>
     <%= f.submit "Create Storefront", class: 'btn btn-primary' %>
   <% end %>
+<% end %> 
+
+<% if current_user.storefront %>
+  <%= form_tag new_storefront_item_path(@storefront.id), method: "GET" do %>
+    <%= submit_tag "Create New Item", class:'btn btn-dark' %>
+  <% end %>
+
+  <%= render :partial => "items/item", :collection => @storefront.items %> 
 <% end %> 
 
