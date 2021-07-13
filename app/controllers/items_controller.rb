@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  def index
+  def show
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -10,7 +11,7 @@ class ItemsController < ApplicationController
     item = Item.new(item_params)
     
     if item.save
-      redirect_to item_path(item)
+      redirect_to storefront_item_path(item.storefront.id, item.id )
     else
       redirect_to new_item_path, alert: "Unable to Create Item."
     end

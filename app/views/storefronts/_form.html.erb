@@ -15,7 +15,7 @@
   <%= form_tag new_item_path, method: "GET" do %>
     <%= submit_tag "Create New Item", class:'btn btn-dark' %>
   <% end %>
-
+  <br><br>
   <%= render :partial => "items/item", :collection => @storefront.items %> 
 <% end %> 
 

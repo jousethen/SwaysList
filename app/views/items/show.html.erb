@@ -1,0 +1,13 @@
+<div class="col-md-2">
+</div>
+
+<div class="col-md-6">
+  <%= image_tag(@item.image_url, border: 1, width: "60%", height: "60%") %>
+</div>
+
+<div class="col-md-4">
+<h2><%=@item.name %></h2>
+<p><%=@item.description %></p>
+<p>$<%=@item.price %></p>
+</div>
+
