@@ -6,9 +6,11 @@
   <%= hidden_field_tag "[item][storefront_id]",  current_user.storefront.id%>
 
   <p>Category</p>
-  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %><br>
+
+  <p>New Category</p>
   <%= f.fields_for :categories, Category.new do |categories_fields| %>
-    <%= categories_fields.text_field :name %>
+    <%= categories_fields.text_field :name %><br>
   <% end %>
 
   <%= f.submit "Save", class: 'btn btn-primary' %>
