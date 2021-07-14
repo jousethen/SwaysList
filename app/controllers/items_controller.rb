@@ -39,6 +39,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+
+    redirect_to edit_storefront_path (current_user.storefront.id)
+  end
+
    private 
   def item_params
     params.require(:item).permit(:name, :price, :storefront_id, :image_url, :description, category_ids:[], categories_attributes: [:name])
