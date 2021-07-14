@@ -12,6 +12,11 @@ class SessionsController < ApplicationController
     
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+      
+      if user.vendor
+        session[:vendor] = user.id
+      end
+      
       redirect_to "/"
     else
       redirect_to '/login', alert: "Unable to Authenticate"

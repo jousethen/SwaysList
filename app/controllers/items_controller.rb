@@ -1,13 +1,13 @@
 class ItemsController < ApplicationController
-  def show
-    @item = Item.find(params[:id])
-  end
-
   def new
     @item = Item.new
   end
 
   def edit
+    @item = Item.find(params[:id])
+  end
+
+  def show
     @item = Item.find(params[:id])
   end
 
@@ -27,9 +27,9 @@ class ItemsController < ApplicationController
     item.update(item_params)
 
     if item.save
-      redirect_to item
+      redirect_to storefront_item_path(item.storefront.id, item.id)
     else
-      redirect_to edit_item_path(item.id), alert: "Invalid Name"
+      redirect_to edit_storefront_item_path(item.storefront.id,item.id), alert: "Invalid Name"
     end
   end
 
