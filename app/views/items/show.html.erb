@@ -10,6 +10,13 @@
 <p><%=@item.description %></p>
 <p>$<%=@item.price %></p>
 
+<%= form_tag ({controller: 'transactions', action: 'add_item', method: 'post'}) do %>
+  <%= hidden_field_tag :item, @item %>
+  <%= submit_tag "Add to Cart", class:'btn btn-dark'%>
+<% end %>
+
+
+
 <%if current_user_is_vendor? && current_user.storefront.items.include?(@item)%>
   <%= form_tag edit_storefront_item_path(current_user.storefront.id, @item.id), method: "GET" do %>
     <%= submit_tag "Edit", class:'btn btn-dark' %>
