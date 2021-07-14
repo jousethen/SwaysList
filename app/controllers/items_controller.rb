@@ -5,6 +5,12 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+
+    if @item.storefront != current_user.storefront
+      redirect_to "/", alert: "You do not have access to this page"
+    else
+      render "edit"
+    end
   end
 
   def show

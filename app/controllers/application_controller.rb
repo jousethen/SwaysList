@@ -22,6 +22,10 @@ class ApplicationController < ActionController::Base
     return true if current_user == vendor
   end
 
+  def is_owner?
+
+  end
+  
   def home
     render 'home'
   end
