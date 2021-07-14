@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :storefronts, only:[:new, :show, :edit, :create, :update] do
     resources :items, only:[:show, :edit, :update] 
   end
-  resources :items
+  resources :items, only:[:new, :create, :destroy]
   resources :users, only: [:new, :edit, :create, :update]
   
   root to: 'storefronts#index'
