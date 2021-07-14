@@ -7,6 +7,10 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
   def create
     item = Item.new(item_params)
     
@@ -17,8 +21,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  def updateTODO
-    item = current_user.item
+  def update
+    item = Item.find(params[:id])
 
     item.update(item_params)
 

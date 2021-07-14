@@ -5,6 +5,8 @@ class User < ApplicationRecord
   # accepts_nested_attributes_for :storefronts
   validates :email, presence: true
   validates :email, uniqueness: true
+  before_save :make_lower_case
+ 
 
   def add_balance(amount)
     current = self.balance
@@ -16,5 +18,13 @@ class User < ApplicationRecord
   def full_name
     self.first_name + " " + self.last_name
   end
+
+
+  private
+  def make_lower_case
+    # Rails provides a String#titlecase method
+    self.email = self.email.downcase
+  end
+
   
 end
