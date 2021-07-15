@@ -20,12 +20,16 @@ class StorefrontsController < ApplicationController
 
   def edit
     @storefront = current_user.storefront
+    
     if !@storefront
       redirect_to new_storefront_path
+    end
+    
+    if params[:id].to_s != @storefront.id.to_s
+      redirect_to edit_storefront_path(@storefront.id)
     else
       render 'edit'
     end
-  
   end
 
   def create
