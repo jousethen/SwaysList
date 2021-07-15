@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root to: 'storefronts#index'
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#logout'
+  get '/cart' => 'transactions#cart'
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
   post '/add_balance' =>'users#add_balance'

@@ -12,6 +12,10 @@ class TransactionsController < ApplicationController
     flash.alert = "#{item.name} added to cart"
     redirect_to storefront_item_path(item.storefront.id, item.id)
   end
+
+  def cart
+    
+  end
   
   
 end
