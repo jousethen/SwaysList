@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_07_12_195211) do
     t.integer "storefront_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "image_url"
+    t.string "image_url", default: "https://www.osageschools.com/wp-content/uploads/2016/11/image-coming-soon.png"
     t.text "description"
   end
 
