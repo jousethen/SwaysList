@@ -1,5 +1,5 @@
 <h2>Your Shopping Cart</h2>
-
+<%if cart_display != "NO ITEMS IN CART"%>
 <table class="table">
 <thead>
   <tr>
@@ -16,7 +16,9 @@
         <td class="col-md-2"><%=i.name%></td>
         <td class="col-md-2">$<%=i.price%></td>
         <td class="col-md-2">x<%=c%></td>
+        <td class="col-md-2">x<%=c%></td>
       </tr>
     <% end%>
   </tbody>
 </table>
+<%end%>

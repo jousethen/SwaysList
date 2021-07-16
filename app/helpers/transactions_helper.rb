@@ -1,14 +1,25 @@
 module TransactionsHelper
   def cart_display
-    uniq_cart = session[:cart].uniq
+    if session[:cart]
+      uniq_cart = session[:cart].uniq
 
-    display = {}
-    
-    uniq_cart.each do |i|
-      item = Item.find(i)
+      display = {}
       
-      display[item] = session[:cart].count(i)
+      uniq_cart.each do |i|
+        item = Item.find(i)
+        
+        display[item] = session[:cart].count(i)
+      end
+    else 
+      display = "NO ITEMS IN CART"
     end
+
     display
+  end
+
+  def total_cost
+    cost = 0
+
+    session[:cart]
   end
 end
