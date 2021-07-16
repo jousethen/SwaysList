@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy'
   post '/add_balance' =>'users#add_balance'
   post '/add_item/:id' => 'transactions#add_item'
+  post '/remove_item/:id' => 'transactions#remove_item'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
  

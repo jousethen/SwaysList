@@ -16,7 +16,7 @@
         <td class="col-md-2"><%=i.name%></td>
         <td class="col-md-2">$<%=i.price%></td>
         <td class="col-md-2">x<%=c%></td>
-        <td class="col-md-2">x<%=c%></td>
+        <td class="col-md-2">  <%= button_to "+", action: "add_item", class: "btn btn-primary", id: i.id %> <%= button_to "-", action: "remove_item", class: "btn btn-danger", id: i.id %> </td>
       </tr>
     <% end%>
   </tbody>

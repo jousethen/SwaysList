@@ -10,11 +10,17 @@ class TransactionsController < ApplicationController
     end
 
     flash.alert = "#{item.name} added to cart"
-    redirect_to storefront_item_path(item.storefront.id, item.id)
+    redirect_back(fallback_location: root_path)
+  end
+
+  def remove_item
+    session[:cart].delete_at(session[:cart].index(params[:id]) || session[:cart].length)
+
+    # flash.alert = "#{item.name} removed to cart"
+    redirect_back(fallback_location: root_path) 
   end
 
   def cart
-    
   end
   
   
