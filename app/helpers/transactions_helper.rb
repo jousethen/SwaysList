@@ -19,7 +19,11 @@ module TransactionsHelper
 
   def total_cost
     cost = 0
-
-    session[:cart]
+    session[:cart].each do |i|
+      item = Item.find(i)
+      cost += item.price.to_i
+    end
+  
+    cost
   end
 end
