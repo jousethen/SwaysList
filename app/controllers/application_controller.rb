@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :verified_user
-  helper_method :current_user, :current_user_is_vendor?, :cart_total
+  helper_method :current_user, :current_user_is_vendor?
 
   private
 
@@ -30,6 +30,14 @@ class ApplicationController < ActionController::Base
     end
   
     cost
+  end
+
+  def cart_items
+    items = session[:cart].collect do |i|
+      Item.find(i)
+    end
+
+    items
   end
   
   def home

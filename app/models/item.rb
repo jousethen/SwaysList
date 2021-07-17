@@ -2,7 +2,6 @@ class Item < ApplicationRecord
   has_many :item_categories, dependent: :destroy
   has_many :categories, through: :item_categories
   belongs_to :storefront
-  # has_and_belongs_to_many :transactions
   #has_many :users, through: :transactions
   validates :price, numericality: { greater_than: 0 }
   accepts_nested_attributes_for :categories
