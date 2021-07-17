@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   belongs_to :storefront
   # has_and_belongs_to_many :transactions
   #has_many :users, through: :transactions
+  validates :price, numericality: { greater_than: 0 }
   accepts_nested_attributes_for :categories
 
   def categories_attributes=(category_attributes)
