@@ -26,6 +26,7 @@ class SessionsController < ApplicationController
  def destroy
     session.delete :user_id
     session.delete :vendor
+    session.delete :cart
     redirect_to '/'
   end
 end

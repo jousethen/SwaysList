@@ -45,6 +45,11 @@ class TransactionsController < ApplicationController
   end
   
   def index
+    if !!current_user.transactions
+      @transactions = current_user.transactions
+    else
+      @transactions = []
+    end
   end
   
   def new
@@ -54,12 +59,13 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    transaction = Transaction.new(user_id: current_user.id)
+    transaction = Transaction.create(user_id: current_user.id)
     
     cart_items.each do |i|
       transaction.items << i
     end
 
+    session.delete :cart
     redirect_to transactions_path
   end
 
