@@ -26,4 +26,9 @@ module TransactionsHelper
   
     cost
   end
+
+  def final_balance(amount)
+    current_user.balance - amount
+  end
+
 end

@@ -31,3 +31,7 @@
   <h3>Total: $<%=total_cost%></h3>
 </div>
 <%end%>
+
+<%= form_tag new_transaction_path, method: "GET" do %>
+  <%= submit_tag "Checkout", class:'btn btn-success' %>
+<% end %>
