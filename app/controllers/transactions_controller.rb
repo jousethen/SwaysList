@@ -25,6 +25,9 @@ class TransactionsController < ApplicationController
   end
   
   def new
+    if current_user.final_balance(cart_total) < 0
+      redirect_to '/cart', alert: "You do not have enough money to complete this transaction"
+    end
   end
   
 end

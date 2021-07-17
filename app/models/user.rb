@@ -19,6 +19,9 @@ class User < ApplicationRecord
     self.first_name + " " + self.last_name
   end
 
+  def final_balance(amount)
+    self.balance - amount
+  end
 
   private
   def make_lower_case

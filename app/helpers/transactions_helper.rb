@@ -17,18 +17,7 @@ module TransactionsHelper
     display
   end
 
-  def total_cost
-    cost = 0
-    session[:cart].each do |i|
-      item = Item.find(i)
-      cost += item.price.to_i
-    end
-  
-    cost
-  end
 
-  def final_balance(amount)
-    current_user.balance - amount
-  end
+
 
 end
