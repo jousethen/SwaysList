@@ -1,5 +1,5 @@
 <%= form_for @user do |f| %>
-  Email: <%= f.text_field :email, class: 'form-control'%><br>
+  Email: <%= f.text_field :email, class: 'form-control', disabled:true%><br>
   First Name: <%= f.text_field :first_name, class: 'form-control' %><br>
   Last Name: <%= f.text_field :last_name, class: 'form-control' %><br>
   Address: <%= f.text_area :address, class: 'form-control' %><br>

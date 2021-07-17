@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_secure_password
   # accepts_nested_attributes_for :storefronts
   validates :email, presence: true
-  validates :email, uniqueness: true
+  validates :email, uniqueness: true, on: :create
   before_save :make_lower_case
  
 

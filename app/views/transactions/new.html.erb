@@ -12,3 +12,5 @@
   <h3>Final Balance</h3>
   <p>$<%=current_user.final_balance(cart_total)%></p>
 </div>
+
+<%= button_to "Confirm Checkout", {action: "create"}, {class: "btn btn-success"}  %>

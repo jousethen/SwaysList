@@ -21,7 +21,6 @@ class ItemsController < ApplicationController
     item = Item.new(item_params)
     
     if item.save
-      binding.pry
       redirect_to storefront_item_path(item.storefront.id, item.id )
     else
       flash.alert = "Unable to Create Item."
@@ -37,7 +36,8 @@ class ItemsController < ApplicationController
     if item.save
       redirect_to storefront_item_path(item.storefront.id, item.id)
     else
-      redirect_to edit_storefront_item_path(item.storefront.id,item.id), alert: "Invalid Name"
+      flash.alert = "Invalid Name"
+      redirect_back(fallback_location: root_path)
     end
   end
 

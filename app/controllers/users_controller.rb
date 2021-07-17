@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def add_balance
     current_user.add_balance(params[:balance].to_i)
-    redirect_to edit_user_path(current_user)
+    redirect_back(fallback_location: root_path)
   end
 
   def create
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
   private 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :balance, :address, :password, :vendor)
+    params.require(:user).permit( :first_name, :last_name, :balance, :address, :password, :vendor)
   end
 
 
