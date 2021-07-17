@@ -1,0 +1,14 @@
+<h2>Transaction in Progress</h2>
+<% flash.each do |type, msg| %>
+  <div class='alert'>
+    <%= msg %>
+  </div>
+<% end %>
+
+<div class="align-center">
+  <h3>Current Balance</h3>
+  <p><%-current_user.balance%></p>
+  <br>
+  <h3>Final Balance</h3>
+  <p><%-final_balance(total_cost)%></p>
+</div>
