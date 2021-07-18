@@ -1,3 +1,4 @@
 <tr>
-  <td class="col-md-4"><%=transaction.created_at%></td>
+  <td class="col-md-4"><%=transaction.created_at.strftime('%A, %b %d')%></td>
+  <td class="col-md-4"><%=link_to "Show Details", transaction_path(transaction.id)%></td>
 </tr>

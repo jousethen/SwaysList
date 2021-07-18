@@ -60,7 +60,7 @@ class TransactionsController < ApplicationController
 
   def create
     transaction = Transaction.create(user_id: current_user.id)
-    
+
     cart_items.each do |i|
       transaction.items << i
     end
@@ -69,6 +69,8 @@ class TransactionsController < ApplicationController
     redirect_to transactions_path
   end
 
-  
+  def show
+    @transaction = Transaction.find(params[:id])
+  end
   
 end

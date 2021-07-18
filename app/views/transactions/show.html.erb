@@ -1,0 +1,23 @@
+<h2>Transaction Details</h2>
+<p>Made on: <%=@transaction.created_at.strftime('%A, %b %d')%></p>
+
+<table class="table">
+<thead>
+  <tr>
+      <th scope="col">Item</th>
+      <th scope="col">Price</th>
+      <th scope="col">Store</th>
+  </tr>
+  </thead>
+  <tbody>
+    <%@transaction.items.each do |i|%>
+      <tr>
+        <td><%=i.name%></td>
+        <td><%=i.price%></td>
+        <td><%=i.storefront.name%></td>
+      </tr>
+    <%end%> 
+  </tbody>
+</table>
+
+
