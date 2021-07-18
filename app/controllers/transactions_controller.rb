@@ -12,8 +12,14 @@ class TransactionsController < ApplicationController
   end
 
   def cart_items
-    items = session[:cart].collect do |i|
-      Item.find(i)
+    if session[:cart]
+      items = session[:cart].collect do |i|
+        Item.find(i)
+      end
+
+    
+    else
+      items =[]
     end
 
     items

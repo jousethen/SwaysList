@@ -34,6 +34,10 @@
 </div>
 <%end%>
 
-<%= form_tag new_transaction_path, method: "GET" do %>
-  <%= submit_tag "Checkout", class:'btn btn-success' %>
-<% end %>
+<%if session[:cart]%>
+  <%= form_tag new_transaction_path, method: "GET" do %>
+    <%= submit_tag "Checkout", class:'btn btn-success' %>
+  <% end %>
+<%else%>
+  <h4>Cart is Empty</h4>
+<%end%>

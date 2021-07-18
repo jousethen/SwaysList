@@ -37,3 +37,8 @@
     <%= submit_tag "$100", class:'btn btn-dark' %>
   <% end %>
 <% end %>
+
+<br><br>
+<%= form_tag ({controller: 'transactions', action: 'index', method: 'get'}) do %>
+    <%= submit_tag "Transaction History", class: 'btn btn-primary'  %>
+  <% end %>
