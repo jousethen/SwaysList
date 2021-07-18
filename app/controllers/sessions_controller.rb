@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :verified_user, only: [:new, :create]
   def new
   end
-
+  
   def logout
     render 'logout'
   end

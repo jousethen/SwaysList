@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#logout'
   get '/cart' => 'transactions#cart'
+  get '/superstores' => 'storefronts#superstores'
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
   post '/add_balance' =>'users#add_balance'

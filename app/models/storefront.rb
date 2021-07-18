@@ -5,4 +5,7 @@ class Storefront < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
   
+  def self.superstores
+   Storefront.joins(:items).group("storefronts.id").having("COUNT(*) > 4").select("storefronts.*")
+  end
 end

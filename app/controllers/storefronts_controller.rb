@@ -5,6 +5,10 @@ class StorefrontsController < ApplicationController
     @storefronts = Storefront.all
   end
   
+  def superstores
+    @storefronts = Storefront.superstores
+  end
+  
   def show
     @storefront = Storefront.find(params[:id])
   end
