@@ -20,7 +20,7 @@
 
 
 
-<%if current_user_is_vendor? && current_user.storefront.items.include?(@item)%>
+<%if @item.storefront == current_user.storefront %>
   <%= form_tag edit_storefront_item_path(current_user.storefront.id, @item.id), method: "GET" do %>
     <%= submit_tag "Edit", class:'btn btn-primary' %>
   <% end %>
