@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post] 
   resources :transactions, only:[:new, :create, :index, :show]
 
   resources :storefronts, only:[:new, :show, :edit, :create, :update] do
