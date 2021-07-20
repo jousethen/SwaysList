@@ -9,7 +9,13 @@
 <h2><%=@item.name %></h2>
 <p><%=@item.description %></p>
 <p>$<%=@item.price %></p>
+<ul>
 
+<% @item.categories.each do |c|%>
+<li><%=c.name %></li>
+<%end%>
+
+</ul>
 
 
 

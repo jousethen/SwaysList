@@ -12,22 +12,31 @@ class SessionsController < ApplicationController
     pp request.env['omniauth.auth']
     session[:omniauth_data] = request.env['omniauth.auth']
     
-    if session[:omniauth_data]
+    if session[:omniauth_data] #Github Login
       user = User.find_by(email: session[:omniauth_data][:info][:email].downcase)
-    else
+      
+      if user 
+        session[:user_id] = user.id
+         redirect_to "/"
+      else
+        redirect_to '/login', alert: "Unable to Authenticate"
+      end
 
+    else #Normal Sign Up
       user = User.find_by(email: params[:email].downcase)
-    end
+      if user.vendor
+        session[:vendor] = user.id
+      end
+
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        
-        if user.vendor
-          session[:vendor] = user.id
-        end
-      redirect_to "/"
-    else
-      redirect_to '/login', alert: "Unable to Authenticate"
+        redirect_to "/"
+      else
+        redirect_to '/login', alert: "Unable to Authenticate"
+      end
     end
+
+     
   end
 
  def destroy
