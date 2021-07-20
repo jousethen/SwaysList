@@ -43,6 +43,7 @@ class SessionsController < ApplicationController
     session.delete :user_id
     session.delete :vendor
     session.delete :cart
+    session.delete :omniauth_data
     redirect_to '/'
   end
 end
