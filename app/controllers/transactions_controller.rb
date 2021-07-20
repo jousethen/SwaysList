@@ -70,8 +70,11 @@ class TransactionsController < ApplicationController
 
     cart_items.each do |i|
       transaction.items << i
+      
     end
-
+    
+    current_user.update(balance: current_user.final_balance(cart_total))
+    current_user.save
     session.delete :cart
     redirect_to transactions_path
   end
