@@ -51,6 +51,7 @@ class TransactionsController < ApplicationController
   end
   
   def index
+    
     if !!current_user.transactions
       @transactions = current_user.transactions
     else

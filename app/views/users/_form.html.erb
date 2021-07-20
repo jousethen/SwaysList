@@ -39,6 +39,5 @@
 <% end %>
 
 <br><br>
-<%= form_tag ({controller: 'transactions', action: 'index', method: 'get'}) do %>
-    <%= submit_tag "Transaction History", class: 'btn btn-primary'  %>
-  <% end %>
+
+<h3><%=link_to "Transaction History", transactions_path%></h3>
