@@ -24,11 +24,13 @@ class SessionsController < ApplicationController
 
     else #Normal Sign Up
       user = User.find_by(email: params[:email].downcase)
-      if user.vendor
-        session[:vendor] = user.id
-      end
+      
 
       if user && user.authenticate(params[:password])
+        if user.vendor
+          session[:vendor] = user.id
+        end
+
         session[:user_id] = user.id
         redirect_to "/"
       else

@@ -1,5 +1,5 @@
 <%= form_for @user do |f| %>
-  Email: <%= f.text_field :email, class: 'form-control', disabled:true%><br>
+  
   First Name: <%= f.text_field :first_name, class: 'form-control' %><br>
   Last Name: <%= f.text_field :last_name, class: 'form-control' %><br>
   Address: <%= f.text_area :address, class: 'form-control' %><br>
@@ -9,6 +9,7 @@
     <%= f.submit "Edit Account", class: 'btn btn-primary' %>
 
   <% else %>
+    Email: <%= f.text_field :email, class: 'form-control'%><br>
     Password: <%= f.password_field :password, class: 'form-control' %><br>
     Vendor: <%= f.check_box :vendor%><br>
     <%= f.submit "Create Account", class: 'btn btn-primary' %>
