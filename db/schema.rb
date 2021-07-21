@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 2021_07_12_195211) do
 
   create_table "transactions", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "storefront_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

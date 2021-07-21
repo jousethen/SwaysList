@@ -19,8 +19,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-    
+    user = User.new(user_create_params)
     if user.authenticate(params[:user][:password])
       user.save
       session[:user_id] = user.id
@@ -32,12 +31,12 @@ class UsersController < ApplicationController
         redirect_to '/'
       end
     else
-      redirect_to new_user_path
+      redirect_to new_user_path, alert: "Unable to Create user"
     end
   end
 
   def update
-    current_user.update(user_params)
+    current_user.update(user_edit_params)
 
     if current_user.save
       redirect_to "/"
@@ -47,9 +46,12 @@ class UsersController < ApplicationController
   end
 
   private 
-  def user_params
-    params.require(:user).permit( :first_name, :last_name, :balance, :address, :password, :vendor)
+  def user_create_params
+    params.require(:user).permit( :first_name, :last_name, :email, :balance, :address, :password, :vendor)
   end
 
+  def user_edit_params
+    params.require(:user).permit( :first_name, :last_name, :balance, :address, :password, :vendor)
+  end
 
 end
