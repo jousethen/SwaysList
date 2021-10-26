@@ -1,26 +1,25 @@
-# README
+# SwayList
 
-test
+Welcome! For this project I attempted to emulate a website like Etsy or Craigslist using Ruby/Rails. 
+[Demo](https://youtu.be/cxJfDAZ0ne4)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
 
-Things you may want to cover:
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-* Ruby version
+### Installing
 
-* System dependencies
+Clone this repository and run bundle install then rake db:migrate. You can then run rake db:seed to populate the database with some student data.  
 
-* Configuration
+## Contributing
 
-* Database creation
+Bug reports and pull requests are welcome on GitHub at https://github.com/jousethen/swaylist. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* Database initialization
+## License
 
-* How to run the test suite
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-* Services (job queues, cache servers, search engines, etc.)
+## Code of Conduct
 
-* Deployment instructions
+Everyone interacting in the PlayerSetHistory project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'sway'/player_set_history/blob/master/CODE_OF_CONDUCT.md).
 
-* ...
